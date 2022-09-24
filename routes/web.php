@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\Admin\AdminRegisterController;
 use App\Http\Controllers\Auth\Admin\AdminLogoutController;
+use App\Http\Controllers\Auth\Admin\AdminLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,6 @@ Route::post('/admin/logout', [AdminLogoutController::class, 'adminLogout']);
 Route::get('/admin/login', function () {
     return view('auth.admin.admin-login');
 });
+
+// 管理者ユーザーのログイン処理
+Route::post('/admin/login', [AdminLoginController::class, 'adminLogin']);
