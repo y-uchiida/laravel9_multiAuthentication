@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\Admin\AdminRegisterController;
+use App\Http\Controllers\Auth\Admin\AdminLogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ Route::get('/admin/register', function () {
 
 // 管理者ユーザーの登録処理
 Route::post('/admin/register', [AdminRegisterController::class, 'create']);
+
+// 管理者ユーザーのログアウト処理
+Route::post('/admin/logout', [AdminLogoutController::class, 'adminLogout']);
