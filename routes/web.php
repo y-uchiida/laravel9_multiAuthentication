@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Auth\Admin\AdminRegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +30,6 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/register', function () {
     return view('auth.admin.admin-register');
 });
+
+// 管理者ユーザーの登録処理
+Route::post('/admin/register', [AdminRegisterController::class, 'create']);
