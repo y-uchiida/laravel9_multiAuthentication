@@ -37,3 +37,8 @@ Route::post('/admin/register', [AdminRegisterController::class, 'create']);
 
 // 管理者ユーザーのログアウト処理
 Route::post('/admin/logout', [AdminLogoutController::class, 'adminLogout']);
+
+// 管理者ユーザーのログイン画面
+Route::get('/admin/login', function () {
+    return view('auth.admin.admin-login');
+});
