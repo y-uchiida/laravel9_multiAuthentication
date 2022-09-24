@@ -23,3 +23,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+/* 管理者ユーザーの登録画面 */
+Route::get('/admin/register', function () {
+    return view('auth.admin.admin-register');
+});
