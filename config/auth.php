@@ -36,10 +36,25 @@ return [
     */
 
     'guards' => [
+        // web(ブラウザからの一般的なアクセス)の場合に利用するデフォルトのguard
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        // 一般ユーザー用のguardを追記する
+        'user' => [
+            'driver' => 'session', // Sessionデータとして、ログイン状態を保存する
+            'provider' => 'users', // 認証の際に照合を行う方法として、下記に設定している users プロバイダ を指定する
+        ],
+
+
+        // 管理者ユーザー用のguardを追記する
+        'admin' => [
+            'driver' => 'session', // Sessionデータとして、ログイン状態を保存する
+            'provider' => 'admins' // 認証の際に照合を行う方法として、下記に設定している admins プロバイダ を指定する
+        ]
+
     ],
 
     /*
@@ -60,9 +75,15 @@ return [
     */
 
     'providers' => [
+        // 認証を行う際に、ユーザー情報を照合する方法を設定する
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'driver' => 'eloquent', // Eloquent モデルの機能を照合に利用する
+            'model' => App\Models\User::class, // 利用するモデルクラスを指定する(User モデル)
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent', // Eloquent モデルの機能を照合に利用する
+            'model' => App\Models\Admin::class, // 利用するモデルクラスを指定する(Admin モデル)
         ],
 
         // 'users' => [
